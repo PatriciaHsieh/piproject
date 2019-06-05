@@ -1,1 +1,7 @@
-split bill code (will edit once done)
+#include<stdio.h>
+
+//declare split bill function
+
+int main()
+
+//call split bill function
