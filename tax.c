@@ -14,7 +14,7 @@ int main(void)
    float C;
    float N;
    float T;
-   addtax(s, &C, &T, &N)
+   addtax(s, &C, &T, &N);
    printf("California taxed bill is $%f\n", C);
    printf("New York City taxed bill is $%f\n", N);
   printf("Texas taxed bill is $%f\n", T);
