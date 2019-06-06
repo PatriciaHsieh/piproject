@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-//declare taxbill function, s=subtotal, C, T, N=salestax, t=taxedbill
+//declare addtax function, s=subtotal, C=California, T=Texas, N=NewYork
 void addtax (float s, float* C, float* T, float* N)
 {
   *C = s * 1.075;
@@ -8,18 +8,18 @@ void addtax (float s, float* C, float* T, float* N)
   *N = s * 1.08875;
 }
 
-//declare addtip function, s=subtotal, r=rate, t=subtotal+tip(total)
-float addtip (float s, float r, float t)
+//declare splitbill function, tax, n=number of people, p=total per person
+float splitbill (float tax, float n, float p)
 {
-  t = s * (1 + (r / 100));
-  return t;
+  p = tax / n;
+  return p;
 }
 
-//declare splitbill function, s=subtotal, n=number of people, t=total
-float splitbill (float s, float n, float t)
+//declare addtip function, tax=state tax, r=rate, tip=tip for the table
+float addtip (float tax, float r, float tip)
 {
-  t = s / n;
-  return t;
+  tip = tax * (r / 100);
+  return tip;
 }
 
 int main(void) 
@@ -36,29 +36,33 @@ int main(void)
  sscanf(input, "%f", &partysize);
  printf("Input=%f\n", partysize);
 
-//call tax
-float s = subtotal;
-  float C;
-  float N;
-  float T;
-  addtax(s, &C, &T, &N);
-  printf("California taxed bill is $%f\n", C);
-  printf("New York City taxed bill is $%f\n", N);
-  printf("Texas taxed bill is $%f\n", T);
+//call addtax
+ float s = subtotal;
+ float C;
+ float N;
+ float T;
+ addtax(s, &C, &T, &N);
+ printf("California taxed bill is $%f\n", C);
+ printf("New York City taxed bill is $%f\n", N);
+ printf("Texas taxed bill is $%f\n", T);
+
+printf("If you live in California:\n");
+
+//call splitbill
+ float p;
+ float n = partysize;
+ float tax = C;
+ p = splitbill(tax, n, p);
+ printf("Each person will pay $%f\n", p);
 
 //call addtip
 for (float i=0; i<26; i+=5)
-{
-  float r = i;
-  float t;
-  float s = subtotal;
-  t = addtip(s, r, t);
-  printf("If you tip %f percent, your total is $%f\n", r, t);
-}
+ {
+   float r = i;
+   float taxtip;
+   float s = subtotal;
+   taxtip = addtip(tax, r, taxtip);
+   printf("If you tip %f percent, your table will tip $%f\n", r, taxtip);
+ }
 
-//call splitbill
- float t;
- float n = partysize;
- t = splitbill(s, n, t);
- printf("Each person will pay $%f\n", t);
 }
