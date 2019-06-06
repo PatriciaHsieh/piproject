@@ -29,12 +29,10 @@ int main(void)
  printf("What is the subtotal?\n");
  fgets(input, 256, stdin);
  sscanf(input, "%f", &subtotal);
- printf("Input=%f\n", subtotal);
  float partysize;
  printf("How many people are in your party?\n");
  fgets(input, 256, stdin);
  sscanf(input, "%f", &partysize);
- printf("Input=%f\n", partysize);
 
 //call addtax
  float s = subtotal;
