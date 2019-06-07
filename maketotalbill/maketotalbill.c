@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include <maketotalbill.h>
- 
+#include <totalbill.h>
+
 int main(int argc, char* argv[])
 {
  if (argc != 3)
@@ -52,7 +52,7 @@ for (float i=0; i<21; i+=5)
    float taxtip;
    float s = subtotal;
    taxtip = addtip(tax, r, taxtip);
-   printf("%f% Tip: Your table will tip $%f\n", r, taxtip);
+   printf("%f Percent Tip: Your table will tip $%f\n", r, taxtip);
  }
 
 //Texas Output
@@ -70,7 +70,7 @@ for (float i=0; i<21; i+=5)
    float taxtip;
    float s = subtotal;
    taxtip = addtip(tax, r, taxtip);
-   printf("%f% Tip: Your table will tip $%f\n", r, taxtip);
+   printf("%f Percent Tip: Your table will tip $%f\n", r, taxtip);
    }
 
 //New York Output
@@ -88,7 +88,7 @@ for (float i=0; i<21; i+=5)
    float taxtip;
    float s = subtotal;
    taxtip = addtip(tax, r, taxtip);
-   printf("%f% Tip: Your table will tip $%f\n", r, taxtip);
+   printf("%f Percent Tip: Your table will tip $%f\n", r, taxtip);
  }
 
 printf("\nIMPORTANT: If you have a discount, use these new subtotals:\n");
