@@ -1,4 +1,4 @@
-TARGET = totalbillphp
+TARGET = maketotalbill
 LIBS = -lm
 CC = gcc
 CFLAGS = -g -Wall -I.
