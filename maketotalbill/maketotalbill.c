@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <totalbill.h>
+#include <maketotalbill.h>
 
 int main(int argc, char* argv[])
 {
