@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
     printf("%s : expected 2 args, please enter two floats\n", argv[0]);
     return 1;
   }
-
+  
   float subtotal;
   int found = sscanf(argv[1], "%f", &subtotal);
   if (found != 1)
@@ -56,7 +56,8 @@ int main(int argc, char* argv[])
  printf("New York City taxed bill is $%f\n", N);
  printf("Texas taxed bill is $%f\n", T);
 
-printf("If you live in California:\n");
+//California Output
+printf("\nIf you live in California:\n");
 
 //call splitbill
  float p;
@@ -66,7 +67,43 @@ printf("If you live in California:\n");
  printf("Each person will pay $%f\n", p);
 
 //call addtip
-for (float i=0; i<26; i+=5)
+for (float i=0; i<21; i+=5)
+ {
+   float r = i;
+   float taxtip;
+   float s = subtotal;
+   taxtip = addtip(tax, r, taxtip);
+   printf("%f% Tip: Your table will tip $%f\n", r, taxtip);
+ }
+
+//Texas Output
+printf("\nIf you live in Texas:\n");
+
+//call splitbill
+ tax = T;
+ p = splitbill(tax, n, p);
+ printf("Each person will pay $%f\n", p);
+
+//call addtip
+for (float i=0; i<21; i+=5)
+ {
+   float r = i;
+   float taxtip;
+   float s = subtotal;
+   taxtip = addtip(tax, r, taxtip);
+   printf("%f% Tip: Your table will tip $%f\n", r, taxtip);
+   }
+
+//New York Output
+printf("\nIf you live in New York:\n");
+
+//call splitbill
+ tax = N;
+ p = splitbill(tax, n, p);
+ printf("Each person will pay $%f\n", p);
+
+//call addtip
+for (float i=0; i<21; i+=5)
  {
    float r = i;
    float taxtip;
