@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
     printf("%s : expected 2 args, please enter two floats\n", argv[0]);
     return 1;
   }
-  
+
   float subtotal;
   int found = sscanf(argv[1], "%f", &subtotal);
   if (found != 1)
@@ -72,7 +72,6 @@ for (float i=0; i<26; i+=5)
    float taxtip;
    float s = subtotal;
    taxtip = addtip(tax, r, taxtip);
-   printf("If you tip %f percent, your table will tip $%f\n", r, taxtip);
+   printf("%f% Tip: Your table will tip $%f\n", r, taxtip);
  }
-
 }
