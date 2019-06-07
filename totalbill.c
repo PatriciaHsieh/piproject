@@ -22,6 +22,13 @@ float addtip (float tax, float r, float tip)
   return tip;
 }
 
+//declare adddiscount function, s=subtotal, r=rate, t=tip
+float adddiscount (float s, float r, float t)
+{
+  t = s * (100-r) / 100;
+  return t;
+}
+
 int main(void) 
 {
  char input[256];
@@ -44,7 +51,8 @@ int main(void)
  printf("New York City taxed bill is $%f\n", N);
  printf("Texas taxed bill is $%f\n", T);
 
-printf("If you live in California:\n");
+//California Output
+printf("\nIf you live in California:\n");
 
 //call splitbill
  float p;
@@ -54,13 +62,59 @@ printf("If you live in California:\n");
  printf("Each person will pay $%f\n", p);
 
 //call addtip
-for (float i=0; i<26; i+=5)
+for (float i=0; i<21; i+=5)
  {
    float r = i;
    float taxtip;
    float s = subtotal;
    taxtip = addtip(tax, r, taxtip);
-   printf("If you tip %f percent, your table will tip $%f\n", r, taxtip);
+   printf("%f Percent Tip: Your table will tip $%f\n", r, taxtip);
  }
 
+//Texas Output
+printf("\nIf you live in Texas:\n");
+
+//call splitbill
+ tax = T;
+ p = splitbill(tax, n, p);
+ printf("Each person will pay $%f\n", p);
+
+//call addtip
+for (float i=0; i<21; i+=5)
+ {
+   float r = i;
+   float taxtip;
+   float s = subtotal;
+   taxtip = addtip(tax, r, taxtip);
+   printf("%f Percent Tip: Your table will tip $%f\n", r, taxtip);
+   }
+
+//New York Output
+printf("\nIf you live in New York:\n");
+
+//call splitbill
+ tax = N;
+ p = splitbill(tax, n, p);
+ printf("Each person will pay $%f\n", p);
+
+//call addtip
+for (float i=0; i<21; i+=5)
+ {
+   float r = i;
+   float taxtip;
+   float s = subtotal;
+   taxtip = addtip(tax, r, taxtip);
+   printf("%f Percent Tip: Your table will tip $%f\n", r, taxtip);
+ }
+
+printf("\nIMPORTANT: If you have a discount, use these new subtotals:\n");
+//call adddiscount
+for (float i=0; i<31; i+=5)
+ {
+   float d = i;
+   float t;
+   float s = subtotal;
+   t = adddiscount(s, d, t);
+   printf("If you have a %f percent discount, the new subtotal is $%f\n", d, t);
+   }
 }
