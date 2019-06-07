@@ -22,6 +22,13 @@ float addtip (float tax, float r, float tip)
   return tip;
 }
 
+//declare adddiscount function, s=subtotal, d=discount rate, newsub=new subtotal
+float adddiscount (float s, float d, float newsub)
+{
+  newsub = s * (100-r) / 100;
+  return newsub;
+}
+
 int main(int argc, char* argv[])
 {
  if (argc != 3)
@@ -111,4 +118,15 @@ for (float i=0; i<21; i+=5)
    taxtip = addtip(tax, r, taxtip);
    printf("%f% Tip: Your table will tip $%f\n", r, taxtip);
  }
+
+printf("\nIMPORTANT: If you have a discount, use these new subtotals:\n");
+//call adddiscount
+for (float i=0; i<31; i+=5)
+ {
+   float d = i;
+   float t;
+   float s = subtotal;
+   t = adddiscount(s, d, t);
+   printf("If you have a %f percent discount, the new subtotal is $%f\n", d, t);
+   }
 }
