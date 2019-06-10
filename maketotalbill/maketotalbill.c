@@ -25,6 +25,18 @@ int main(int argc, char* argv[])
 	return 1;
     }
 
+printf("\nIMPORTANT: If you have a discount, use these new subtotals:\n");
+//call adddiscount
+for (float i=0; i<31; i+=5)
+ {
+   float d = i;
+   float t;
+   float s = subtotal;
+   t = adddiscount(s, d, t);
+   printf("If you have a %f percent discount, the new subtotal is $%f\n", d, t);
+   }
+
+printf("\nHere are the taxed bills in California (7.5 percent), Texas (6.5 percent) and New York (8.875 percent)\n");
 //call addtax
  float s = subtotal;
  float C;
@@ -45,16 +57,6 @@ printf("\nIf you live in California:\n");
  p = splitbill(tax, n, p);
  printf("Each person will pay $%f\n", p);
 
-//call addtip
-for (float i=0; i<21; i+=5)
- {
-   float r = i;
-   float taxtip;
-   float s = subtotal;
-   taxtip = addtip(tax, r, taxtip);
-   printf("%f Percent Tip: Your table will tip $%f\n", r, taxtip);
- }
-
 //Texas Output
 printf("\nIf you live in Texas:\n");
 
@@ -62,16 +64,6 @@ printf("\nIf you live in Texas:\n");
  tax = T;
  p = splitbill(tax, n, p);
  printf("Each person will pay $%f\n", p);
-
-//call addtip
-for (float i=0; i<21; i+=5)
- {
-   float r = i;
-   float taxtip;
-   float s = subtotal;
-   taxtip = addtip(tax, r, taxtip);
-   printf("%f Percent Tip: Your table will tip $%f\n", r, taxtip);
-   }
 
 //New York Output
 printf("\nIf you live in New York:\n");
@@ -81,24 +73,14 @@ printf("\nIf you live in New York:\n");
  p = splitbill(tax, n, p);
  printf("Each person will pay $%f\n", p);
 
+printf("\nHere are the recommended tipping amounts:\n");
 //call addtip
 for (float i=0; i<21; i+=5)
  {
    float r = i;
    float taxtip;
    float s = subtotal;
-   taxtip = addtip(tax, r, taxtip);
+   taxtip = addtip(s, r, taxtip);
    printf("%f Percent Tip: Your table will tip $%f\n", r, taxtip);
  }
-
-printf("\nIMPORTANT: If you have a discount, use these new subtotals:\n");
-//call adddiscount
-for (float i=0; i<31; i+=5)
- {
-   float d = i;
-   float t;
-   float s = subtotal;
-   t = adddiscount(s, d, t);
-   printf("If you have a %f percent discount, the new subtotal is $%f\n", d, t);
-   }
 }
